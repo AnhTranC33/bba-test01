@@ -29,9 +29,9 @@ console.log(functionScoped); // Error: functionScoped is not defined
 
 * Block scope (khối)
 if (true) {
-    var varVariable = "var không có block scope";
-    let letVariable = "let có block scope";
-    const constVariable = "const cũng có block scope";
+  var varVariable = "var không có block scope";
+  let letVariable = "let có block scope";
+  const constVariable = "const cũng có block scope";
 }
 console.log(varVariable); // OK - var không bị giới hạn bởi block
 console.log(letVariable); // Error: letVariable is not defined
@@ -53,10 +53,10 @@ let y = 5;
 *break: thoát hoàn toàn khỏi vòng lặp ngay lập tức
 // Thoát khi tìm thấy giá trị
 for (let i = 0; i < 10; i++) {
-    if (i === 5) {
-        break; // Thoát vòng lặp khi i = 5
-    }
-    console.log(i);
+  if (i === 5) {
+    break; // Thoát vòng lặp khi i = 5
+  }
+  console.log(i);
 }
 // Output: 0, 1, 2, 3, 4
 
@@ -64,124 +64,89 @@ for (let i = 0; i < 10; i++) {
 const numbers = [1, 3, 8, 7, 9, 11];
 let firstEven = null;
 for (let num of numbers) {
-    if (num % 2 === 0) {
-        firstEven = num;
-        break; // Dừng ngay khi tìm thấy
-    }
+  if (num % 2 === 0) {
+    firstEven = num;
+    break; // Dừng ngay khi tìm thấy
+  }
 }
 
-### Git & GitHub
-- Git: phần mềm vs GitHub: Dịch vụ web
-- Git: cài trên máy vs GitHub: Host trên website
-- Git: command line tool vs GitHub: Công cụ có giao diện
-- Git: công cụ quản lý phiên bản, đưa file -> Git repository vs GitHub: nơi để upload Git repository
-- Git: có các tính năng của VCS vs GitHub: Có các tính năng khác của VCS & một số tính năng: GitHub Actions, GitHub Co-Pilot...
-
-### Git - three states
-Working Directory - Staging Area - Repository
-- Working Directory: file mới/file có thay đổi
-- Staging Area: Các file đưa vào vùng chuẩn bị commit
-- Repository: Các commit (phiên bản)
-* Command init: *git init*
-* Commands add:
-*git add <filename>*
-*git add .*
-* Command commit:
-*commit -m "message"
-
-### Git - Cấu hình
-1. Trường hợp 1 repo
-*git config --global user.name*
-*git config --global user.email*
-2. Trường hợp mỗi repo tên khác
-Set username, email riêng từng repo (đứng tại terminal của repo đó)
-
-### Git - Một số câu lệnh
-- Xem trạng thái file
-*git status*
-* File xanh: staging
-* File đỏ: working directory
-- Kiểm tra danh sách commit:
-*git log*
-
-### Git - commit convention
-- Convention: <type>: <short_description>
-3 types when commit:
-chore/feat/fix
-
-### Git - simple workflow
-1. Không dùng Global config:
-init->config->add->commit->push
-2. Dùng global config:
-init->add->commit->push
-
-## JavaScript basic
-- JavaScript: ngôn ngữ lập trình
-- Giúp browser hoạt động
-- Chạy được do browers engine support
-Notes: chạy trên máy tính, không có browser engine -> NodesJS
-
-### JavaScript - Hello World!
-- Syntax:
-*console.log("content");*
-*console.log('content');*
-
-#### JavaSCript - Comment
-//ExampleComment
-/*ExampleComment2*/
-- Biến: var/let/const
-
-### JavaScript - Data Type
-- Primitive types
-- Reference types
-* Number: só
-* String: chuỗi
-* Boolean: logic
-- Kiểm tra kiểu dữ liệu: *typeof<variable>*
-
-### JavaScript - Toán tử so sánh
-- So sánh bằng
-== & ===
-- So sánh không bằng
-!
-- So sánh lớn hơn, nhỏ hơn
-">, <, <=, >="
-
-### JavaScript - Toán tử logic
-*&&*
-*||*
-
-### JavaScript - Toán tử một ngôi
-x++;
-++x;
-x--;
---x;
-Prefix: toán tử nằm trước: tăng trước, trả về sau
-Postfix: toán tử nằm sau: trả về trước, tăng sau
-
-### JavaScript - Toán tử toán học
-+, -, *, /
-
-### JavaScript - Câu điều kiện
-- Các loại câu điều kiện:
-*if*
-*if...else*
-*if...else if...else*
-*switch...case*
-
-### JavaScript - Vòng lặp
-- Các loại vòng lặp:
-*for (i)*
-*for (of)*
-*for (each)*
-*for (in)*
-*while*
-*do...while*
-- Syntax:
-1. for (i):
-for (<điều kiện khởi tạo;<điều kiện lặp>;<cập nhật>){
-    //code
+* continue: bỏ qua phần còn lại của vòng lặp, chuyển sang lần lặp tiếp theo
+// Bỏ qua số chẵn
+for (let i = 0; i < 10; i++) {
+  if (i % 2 === 0) {
+    continue; // Bỏ qua số chẵn
+  }
+  console.log(i);
 }
+// Output: 1, 3, 5, 7, 9
 
-### VS Code
-- Format code: Alt + Shift + F
+**Câu điều kiện if...else:** Thực thi code khác nhau cho trường hợp true/false
+**Câu điều kiện if...else if:** Kiểm tra nhiều điều kiện theo thứ tự
+**Ternary operator:** Cách viết ngắn gọn cho if...else đơn giản
+let age = 20;
+let status = (age >= 18) ? "Người lớn" : "Trẻ em";
+console.log(status); // "Người lớn"
+// Có thể lồng nhau (nên cẩn thận với độ phức tạp)
+let score = 75;
+let grade = score >= 90 ? "A" :
+      score >= 80 ? "B" :
+      score >= 70 ? "C" :
+      score >= 60 ? "D" : "F";
+
+
+## Vòng lặp nâng cao
+**for...in Loop**
+Duyệt qua các thuộc tính đếm được của object, gồm thuộc tính kế thừa
+// Với Object
+const person = {
+  name: "John",
+  age: 30,
+  city: "Hanoi"
+};
+for (let key in person) {
+  console.log(key + ": " + person[key]);
+}
+// Output:
+// name: John
+// age: 30
+// city: 
+
+**forEach method**
+Thực thi một function cho mỗi phần tử. Không thể dùng break/continue
+
+## Utils function
+### String utils
+* trim(): cắt khoảng trắng 2 đầu
+- trimLeft(): cắt bên trái
+- trimRight(): cắt bên phải
+* toLowerCase(): chuyển chuỗi thành chữ thường
+* toUpperCase(): chuyển chuỗi thành chữ hoa
+* includes(<subtrings>): kiểm tra chuỗi bao gồm chuỗi con <subtring> không
+* replace(<chuỗi cần thay>,<chuỗi mới>)
+* split(<tách bởi gì>)
+* substring(<điểm bắt đầu>,<điểm kết thúc>)
+* indexOf(<chuỗi kí tự>): tìm vị trí của chuỗi con
+
+### Array utils
+* map(): Tạo mảng mới bằng cách áp dụng một hàm lên từng phần tử 
+của mảng gốc. Trả về mảng mới có cùng độ dài
+* filter(): Tạo mảng mới chỉ chứa các phần tử thỏa mãn điều kiện 
+trong hàm callback. Trả về mảng đã được lọc
+* find(): Tìm và trả về phần tử đầu tiên trong mảng thỏa mãn điều 
+kiện. Trả về undefined nếu không tìm thấy
+*reduce(): Duyệt qua mảng và tích lũy các phần tử thành một giá trị 
+duy nhất (số, chuỗi, object...) dựa trên hàm callback
+* some(): Kiểm tra xem có ít nhất một phần tử trong mảng thỏa mãn 
+điều kiện hay không. Trả về true/false.
+* every(): Kiểm tra xem tất cả phần tử trong mảng có thỏa mãn điều 
+kiện hay không. Trả về true/false.
+* sort(): Sắp xếp các phần tử trong mảng theo thứ tự (mặc định là 
+alphabet/tăng dần). Thay đổi mảng gốc.
+* push(): Thêm một hoặc nhiều phần tử vào cuối mảng. Thay đổi mảng 
+gốc và trả về độ dài mới.
+* pop(): Xóa và trả về phần tử cuối cùng của mảng. Thay đổi mảng gốc 
+và làm giảm độ dài.
+* shift(): Xóa và trả về phần tử đầu tiên của mảng. Thay đổi mảng gốc 
+và làm giảm độ dài.
+* unshift(): Thêm một hoặc nhiều phần tử vào đầu mảng. Thay đổi 
+mảng gốc và trả về độ dài mới của mảng.
